@@ -21,19 +21,22 @@
 Existem duas possibilidades: injetar os dados diretamente no prompt (Ctrl + C, Ctrl + V) ou carregar os arquivos via código, como no exemplo abaixo:
 
 ```python
-import pandas as pd
 import json
+import pandas as pd
 
-# CSVs
-historico = pd.read_csv('data/historico_atendimento.csv')
-transacoes = pd.read_csv('data/transacoes.csv')
+# ============ CARREGAR DADOS ============
+# Carregar perfil do investidor (JSON)
+perfil = json.load(open('./data/perfil_investidor.json'))
 
-# JSONs
-with open('data/perfil_investidor.json', 'r', encoding='utf-8') as f:
-    perfil = json.load(f)
+# Carregar transações (CSV)
+transacoes = pd.read_csv('./data/transacoes.csv')
 
-with open('data/produtos_financeiros.json', 'r', encoding='utf-8') as f:
-    produtos = json.load(f)
+# Carregar histórico de atendimento (CSV)
+historico = pd.read_csv('./data/historico_atendimento.csv')
+
+# Carregar produtos financeiros (JSON)
+produtos = json.load(open('./data/produtos_financeiros.json'))
+
 ```
 
 
